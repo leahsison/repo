@@ -1,0 +1,55 @@
+<head>
+  <title> SCHOLASTICS DEPARTMENT | ACADEMIC PERFROMANCE TRACKER </title>
+</head>
+
+<body>
+    {{#if currentUser}}
+      
+      {{> dashboard}}
+      {{else}}
+    {{> register}}
+    {{> login}}
+    {{/if}}
+</body>
+
+<template name="register">
+<form>
+<input type="text" id="email">
+<input type="password" id="password">
+<br>
+<label><input type="radio" name="acc-type" value="head"> Scho Head</label>
+<label><input type="radio" name="acc-type" value="schomember"> Scho Guardian </label>
+<label> <input type="radio" name="acc-type" value="member"> YSES Member</label>
+<input type="submit" value="Sign-up">
+</form>
+</template>
+
+<template name="login">
+<form>
+<input type="text" id="login-email">
+<input type="password" id="login-password">
+<input type="submit" value="Login">
+</form>
+</template>
+
+<template name="dashboard">
+{{#if ifHead}}
+<!-- change with Router.go('template name')!-->
+<p> You're logged in as Head. </p>
+<p><a href="#" class="logout"> Logout</a></p>
+
+
+{{#if ifGuardian}}
+<!-- change with Router.go('template name')!-->
+<p> You're logged in as guardian.</p>
+<p><a href="#" class="logout"> Logout</a></p>
+
+{{/if}}
+{{else}}
+<!-- change with Router.go('template name')!-->
+<p> You're logged in as member </p>
+<p><a href="#" class="logout"> Logout</a></p>
+
+{{/if}}
+</template>
+
